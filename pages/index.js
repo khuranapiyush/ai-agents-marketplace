@@ -81,7 +81,6 @@ const AgentListing = () => {
     <div
       className='bg-[#1E1E1E] text-white pt-24'
       style={{ width: '100%', height: 'auto', cursor: 'pointer' }}
-      onClick={() => router.push('/agent-details')}
     >
       {/* Main Content */}
       <main
@@ -150,7 +149,10 @@ const AgentListing = () => {
             >
               {isMobile ? (
                 // Mobile Layout
-                <div className='flex flex-col gap-4'>
+                <div
+                  className='flex flex-col gap-4'
+                  onClick={() => router.push('/agent-details')}
+                >
                   {/* Top Section - Image and Details */}
                   <div className='flex gap-4'>
                     <img
@@ -187,7 +189,10 @@ const AgentListing = () => {
                 </div>
               ) : (
                 // Desktop Layout
-                <div className='flex gap-4'>
+                <div
+                  className='flex gap-4'
+                  onClick={() => router.push('/agent-details')}
+                >
                   {/* Left - Image */}
                   <img
                     src={agent.image}
