@@ -1,17 +1,8 @@
 import { FANTV_API_URL } from '@/src/constant/constants';
 import fetcher from '@/src/dataProvider';
 import Tooltip, { tooltipClasses } from '@mui/material/Tooltip';
-import Typography from '@mui/material/Typography';
 import { styled } from '@mui/material/styles';
-import { ArrowLeft, Instagram, Send, Twitter } from 'lucide-react';
-import Head from 'next/head';
-import Link from 'next/link';
 import React, { useState } from 'react';
-import Graph from '../../src/component/Graph/Graph';
-import TradeComponent from '../../src/component/TradeComponent';
-import TradeTable from '../../src/component/TradeTable/TradeTable';
-import { formatWalletAddress } from '../../src/utils/common';
-import { agents } from '../trade';
 import { ChevronLeft, Star, Settings } from 'lucide-react';
 
 const HtmlTooltip = styled(({ className, ...props }) => (
@@ -68,48 +59,6 @@ export default function AgentDetails({ agentDetail, agentId }) {
       console.error('Failed to copy text: ', err);
     }
   };
-
-  const tabs = [
-    {
-      id: 0,
-      label: 'Trades',
-      component: (
-        <div className='h-[auto] bg-[#222222]'>
-          <div className='mt-6 max-w-7xl'>
-            <h4 className='mb-2 font-bold'>Recent Trades</h4>
-            <TradeTable agentDetail={agentDetail} />
-          </div>
-        </div>
-      ),
-    },
-    {
-      id: 1,
-      label: 'Summary',
-      component: (
-        <div className='mt-6'>
-          <h4 className='mb-2 font-bold'>Summary</h4>
-          <p className='mb-4 text-sm text-gray-400'>
-            {agentDetail?.description}
-          </p>
-
-          {agentDetail?.highLights && (
-            <h4 className='mb-2 font-bold'>Highlights</h4>
-          )}
-          {agentDetail?.highLights &&
-            agentDetail?.highLights?.map((item) => {
-              return (
-                <ul className='text-sm text-gray-400 list-disc list-inside'>
-                  <li>{'item'}</li>
-                </ul>
-              );
-            })}
-        </div>
-      ),
-    },
-  ];
-
-  const [tab, setTab] = useState(tabs[0]);
-  const [graphData, setGraphData] = useState(null);
 
   return (
     <div className='min-h-screen bg-[#1E1E1E] text-white'>
