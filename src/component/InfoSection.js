@@ -1,70 +1,491 @@
-import { ChevronLeft, Star, Settings } from 'lucide-react';
+/* eslint-disable @next/next/no-img-element */
+import {
+  ChevronLeft,
+  Star,
+  Settings,
+  Mic,
+  Clock,
+  Calendar,
+} from 'lucide-react';
 import React from 'react';
 
-const sectionData = [
-  {
-    id: 1,
-    title: 'Agent Features',
-    borderColor: '#FFB781',
-    icon: 'settings',
-    iconColor: '#E5A264',
-    content: [
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod',
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod',
+// Define different card layouts for different pages
+const cardLayouts = {
+  music: {
+    features: [
+      {
+        title: 'Music Creation',
+        icon: 'calendar',
+        description: 'Transform your words into melodies',
+        image: '/images/ai/vdioVoice.png',
+      },
+      {
+        title: 'Pick Genre/Style',
+        icon: 'mic',
+        description:
+          'Any genre at your fingertips. Classical, Jazz, Rock, or EDM',
+        image: '/images/ai/appointment.png',
+      },
+      {
+        title: 'Feature Name',
+        icon: 'clock',
+        description:
+          'Any genre at your fingertips. Classical, Jazz, Rock, or EDM– just pick your style and let your words shape the perfect track. Where text transforms into the music you imagine',
+        // image: '/images/features/realtime.png',
+      },
     ],
-    useListStyle: 'bullet', // for bullet points
-  },
-  {
-    id: 2,
-    title: 'Use cases',
-    borderColor: '#FFD3FF',
-    icon: 'bolt',
-    iconColor: 'purple',
-    iconBg: 'bg-purple-500/20',
-    content: [
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod',
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod',
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod',
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod',
+    useCases: [
+      {
+        title: 'Content Creation',
+        icon: 'business',
+        items: [
+          'YouTube background music generation',
+          'Podcast intro/outro music',
+          'Social media content soundtracks',
+          'Custom jingles for marketing videos',
+          'Mood-based ambient music for presentations',
+        ],
+      },
+      {
+        title: 'Personal Use',
+        icon: 'accessibility',
+        items: [
+          'Custom workout playlists',
+          'Meditation/relaxation soundscapes',
+          'Party music generation',
+          'Personalized ringtones',
+          'Mood-based music for different activities',
+        ],
+      },
+      {
+        title: 'Business Applications',
+        icon: 'business',
+        items: [
+          'Custom workout playlists',
+          'Meditation/relaxation soundscapes',
+          'Party music generation',
+          'Personalized ringtones',
+          'Mood-based music for different activities',
+        ],
+      },
     ],
-    useListStyle: 'number', // for numbered list
+    reviews: {
+      title: 'Reviews',
+      borderColor: '#88FDF6',
+      icon: 'star',
+      iconColor: '#0BDA96',
+      iconBg: 'bg-[#0BDA96]/20',
+      content: [
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod',
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod',
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod',
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod',
+      ],
+      useListStyle: 'number',
+    },
   },
-  {
-    id: 3,
-    title: 'Reviews',
-    borderColor: '#88FDF6',
-    icon: 'star',
-    iconColor: '#0BDA96',
-    iconBg: 'bg-[#0BDA96]/20',
-    content: [
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod',
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod',
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod',
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod',
+  voice: {
+    features: [
+      {
+        title: 'Book Appointments',
+        icon: 'calendar',
+        description: 'Transform your words into melodies',
+        image: '/images/ai/bookAppointment.png',
+      },
+      {
+        title: 'Voice authentication',
+        icon: 'mic',
+        description:
+          'Any genre at your fingertips. Classical, Jazz, Rock, or EDM',
+        image: '/images/ai/vdioVoice.png',
+      },
+      {
+        title: 'Real-Time Processing',
+        icon: 'clock',
+        description: 'Provides instant responses during conversations',
+        image: '/images/ai/realtimeProcess.png',
+      },
     ],
-    useListStyle: 'number',
+    useCases: [
+      {
+        title: 'Business/Professional',
+        icon: 'business',
+        items: [
+          'Virtual meeting transcription and translation',
+          'Customer service voice bots and IVR systems',
+          'Voice-based security authentication',
+          'Voice notes and dictation for professionals',
+          'Automated phone surveys and outreach',
+        ],
+      },
+      {
+        title: 'Accessibility',
+        icon: 'accessibility',
+        items: [
+          'Screen readers for visually impaired users',
+          'Speech-to-text for hearing impaired users',
+          'Voice control for mobility-impaired users',
+          'Reading assistance for learning disabilities',
+        ],
+      },
+      {
+        title: 'Personal Productivity',
+        icon: 'business',
+        items: [
+          'Voice assistants (commands, reminders, etc',
+          'Voice memos and notes',
+          'Hands-free device control',
+          'Voice-based search',
+        ],
+      },
+    ],
+    reviews: {
+      title: 'Reviews',
+      borderColor: '#88FDF6',
+      icon: 'star',
+      iconColor: '#0BDA96',
+      iconBg: 'bg-[#0BDA96]/20',
+      content: [
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod',
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod',
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod',
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod',
+      ],
+      useListStyle: 'number',
+    },
   },
-];
+  btr: {
+    features: [
+      {
+        title: 'Market Data Analysis',
+        icon: 'calendar',
+        description: 'Real-time and historical data monitoring',
+        image: '/images/features/voice-wave.png',
+      },
+      {
+        title: 'Automated Trading',
+        icon: 'mic',
+        description: 'Order execution without manual intervention',
+        image: '/images/features/voice-auth.png',
+      },
+      {
+        title: 'Predictive Analytics',
+        icon: 'clock',
+        description: 'Price movement prediction',
+        image: '/images/features/realtime.png',
+      },
+    ],
+    useCases: [
+      {
+        title: 'Day Trading',
+        icon: 'business',
+        items: [
+          'Real-time market insights',
+          'Execution of trades based on minute-by-minute market changes',
+        ],
+      },
+      {
+        title: 'Algorithmic Trading',
+        icon: 'accessibility',
+        items: [
+          'Deployment of pre-set trading algorithms',
+          'Arbitrage and statistical trading strategies',
+        ],
+      },
+      {
+        title: 'Investment Advisory',
+        icon: 'business',
+        items: [
+          'Automated investment advice for retail and institutional clients',
+          'Long-term strategy recommendations',
+        ],
+      },
+    ],
+    reviews: {
+      title: 'Reviews',
+      borderColor: '#88FDF6',
+      icon: 'star',
+      iconColor: '#0BDA96',
+      iconBg: 'bg-[#0BDA96]/20',
+      content: [
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod',
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod',
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod',
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod',
+      ],
+      useListStyle: 'number',
+    },
+  },
+  vdio: {
+    features: [
+      {
+        title: 'Book Appointments',
+        icon: 'calendar',
+        description: 'Transform your words into melodies',
+        image: '/images/ai/marketDataAnalysis.png',
+      },
+      {
+        title: 'Voice Authentication',
+        icon: 'mic',
+        description:
+          'Any genre at your fingertips. Classical, Jazz, Rock, or EDM',
+        image: '/images/ai/automatedTrading.png',
+      },
+      {
+        title: 'Feature Name',
+        icon: 'clock',
+        description:
+          'Any genre at your fingertips. Classical, Jazz, Rock, or EDM– just pick your style and let your words shape the perfect track. Where text transforms into the music you imagine',
+        image: '/images/ai/analysis.png',
+      },
+    ],
+    useCases: [
+      {
+        title: 'Content Creation',
+        icon: 'business',
+        items: [
+          'YouTube background music generation',
+          'Podcast intro/outro music',
+          'Social media content soundtracks',
+          'Custom jingles for marketing videos',
+          'Mood-based ambient music for presentations',
+        ],
+      },
+      {
+        title: 'Personal Use',
+        icon: 'accessibility',
+        items: [
+          'Custom workout playlists',
+          'Meditation/relaxation soundscapes',
+          'Party music generation',
+          'Personalized ringtones',
+          'Mood-based music for different activities',
+        ],
+      },
+      {
+        title: 'Business Applications',
+        icon: 'business',
+        items: [
+          'Custom workout playlists',
+          'Meditation/relaxation soundscapes',
+          'Party music generation',
+          'Personalized ringtones',
+          'Mood-based music for different activities',
+        ],
+      },
+    ],
+    reviews: {
+      title: 'Reviews',
+      borderColor: '#88FDF6',
+      icon: 'star',
+      iconColor: '#0BDA96',
+      iconBg: 'bg-[#0BDA96]/20',
+      content: [
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod',
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod',
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod',
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod',
+      ],
+      useListStyle: 'number',
+    },
+  },
+  anime: {
+    features: [
+      {
+        title: 'Music Creation',
+        icon: 'calendar',
+        description: 'Transform your words into melodies',
+        image: '/images/ai/appointment.png',
+      },
+      {
+        title: 'Pick Genre/Style',
+        icon: 'mic',
+        description:
+          'Any genre at your fingertips. Classical, Jazz, Rock, or EDM',
+        image: '/images/ai/vdioVoice.png',
+      },
+      {
+        title: 'Feature Name',
+        icon: 'clock',
+        description:
+          'Any genre at your fingertips. Classical, Jazz, Rock, or EDM– just pick your style and let your words shape the perfect track. Where text transforms into the music you imagine',
+      },
+    ],
+    useCases: [
+      {
+        title: 'Content Creation',
+        icon: 'business',
+        items: [
+          'YouTube background music generation',
+          'Podcast intro/outro music',
+          'Social media content soundtracks',
+          'Custom jingles for marketing videos',
+          'Mood-based ambient music for presentations',
+        ],
+      },
+      {
+        title: 'Personal Use',
+        icon: 'accessibility',
+        items: [
+          'Custom workout playlists',
+          'Meditation/relaxation soundscapes',
+          'Party music generation',
+          'Personalized ringtones',
+          'Mood-based music for different activities',
+        ],
+      },
+      {
+        title: 'Business Applications',
+        icon: 'business',
+        items: [
+          'Custom workout playlists',
+          'Meditation/relaxation soundscapes',
+          'Party music generation',
+          'Personalized ringtones',
+          'Mood-based music for different activities',
+        ],
+      },
+    ],
+    reviews: {
+      title: 'Reviews',
+      borderColor: '#88FDF6',
+      icon: 'star',
+      iconColor: '#0BDA96',
+      iconBg: 'bg-[#0BDA96]/20',
+      content: [
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod',
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod',
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod',
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod',
+      ],
+      useListStyle: 'number',
+    },
+  },
+};
 
-const InfoSection = ({ section }) => {
-  const renderIcon = (section) => {
-    switch (section.icon) {
-      case 'settings':
-        return <Settings className={`text-[${section.iconColor}]`} />;
-      case 'bolt':
+const FeatureCard = ({ feature }) => (
+  <div
+    className='p-6 transition-colors rounded-xl border-[1.5px] border-white/30 bg-gradient-to-b from-[#615349] to-[#2A2A2A]/60 selection:bg-[#917F75]'
+    style={{
+      backgroundImage: `linear-gradient(180deg, #615349 0%, #352D28 100%), url('/images/ai/noiseBg.png')`,
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      backgroundBlendMode: 'overlay',
+    }}
+  >
+    <div className='flex items-center gap-3 mb-4'>
+      {renderFeatureIcon(feature.icon)}
+      <h3 className='text-lg font-semibold text-white'>{feature.title}</h3>
+    </div>
+    <p className='mb-4 text-gray-400'>{feature.description}</p>
+    {feature.image && (
+      <div className='relative h-40 overflow-hidden rounded-lg'>
+        <img
+          src={feature.image}
+          alt={feature.title}
+          className='object-contain w-full h-full'
+        />
+      </div>
+    )}
+  </div>
+);
+
+const UseCaseCard = ({ useCase }) => (
+  <div
+    className='p-6 rounded-xl transition-colors border-[1.5px] border-white/30 relative selection:bg-[#61495F] overflow-hidden'
+    style={{
+      backgroundImage: `linear-gradient(180deg, #61495F 0%, #332835 100%),url('/images/ai/noiseBg.png')`,
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      backgroundBlendMode: 'overlay',
+    }}
+  >
+    <div className='flex items-center gap-3 mb-4'>
+      {renderUseCaseIcon(useCase.icon)}
+      <h3 className='text-lg font-semibold text-white'>{useCase.title}</h3>
+    </div>
+    <ul className='space-y-3'>
+      {useCase.items.map((item, index) => (
+        <li key={index} className='text-gray-400'>
+          • {item}
+        </li>
+      ))}
+    </ul>
+  </div>
+);
+
+const renderFeatureIcon = (iconName) => {
+  const iconMap = {
+    calendar: <Calendar className='w-6 h-6 text-[#FE954A]' />,
+    mic: <Mic className='w-6 h-6 text-[#FE954A]' />,
+    clock: <Clock className='w-6 h-6 text-[#FE954A]' />,
+  };
+  return iconMap[iconName] || null;
+};
+
+const renderUseCaseIcon = (iconName) => {
+  // Similar icon mapping for use cases
+};
+
+const sectionOrder = ['features', 'useCases'];
+
+const sectionConfig = {
+  features: {
+    id: 'features',
+    title: 'Agent Features',
+    icon: <Settings className='w-5 h-5 text-[#FE954A]' />,
+    borderColor: '#FFB781',
+    titleColor: 'text-[#FE954A]',
+    iconBg: 'bg-[#2A2A2A]',
+  },
+  useCases: {
+    id: 'useCases',
+    title: 'Use cases',
+    icon: <span className='text-purple-300'>⚡</span>,
+    borderColor: '#FFD3FF',
+    titleColor: 'text-purple-500',
+    iconBg: 'bg-purple-500/20',
+  },
+  reviews: {
+    id: 'reviews',
+    title: 'Reviews',
+    icon: <Star className='w-5 h-5 text-[#0BDA96]' />,
+    borderColor: '#88FDF6',
+    titleColor: 'text-[#0BDA96]',
+    iconBg: 'bg-[#0BDA96]/20',
+  },
+};
+
+const InfoSection = ({ pageName }) => {
+  const pageLayout = cardLayouts[pageName];
+  if (!pageLayout) return null;
+
+  const renderContent = (sectionId) => {
+    switch (sectionId) {
+      case 'features':
         return (
-          <div
-            className={`w-6 h-6 ${section.iconBg} rounded flex items-center justify-center`}
-          >
-            <span className='text-purple-300'>⚡</span>
+          <div className='grid grid-cols-1 gap-6 md:grid-cols-3'>
+            {pageLayout.features?.map((feature, index) => (
+              <FeatureCard key={index} feature={feature} />
+            ))}
           </div>
         );
-      case 'star':
+      case 'useCases':
         return (
-          <div
-            className={`w-6 h-6 ${section.iconBg} rounded flex items-center justify-center`}
-          >
-            <Star className='w-4 h-4 text-[#0BDA96]' />
+          <div className='grid grid-cols-1 gap-6 md:grid-cols-3'>
+            {pageLayout.useCases?.map((useCase, index) => (
+              <UseCaseCard key={index} useCase={useCase} />
+            ))}
+          </div>
+        );
+      case 'reviews':
+        return (
+          <div className='space-y-4'>
+            {pageLayout.reviews?.content.map((review, index) => (
+              <div key={index} className='text-gray-400'>
+                {index + 1}. {review}
+              </div>
+            ))}
           </div>
         );
       default:
@@ -72,39 +493,32 @@ const InfoSection = ({ section }) => {
     }
   };
 
-  return sectionData?.map((section, index) => {
-    return (
-      <div
-        key={index}
-        className={`mt-8 p-6 rounded-[24px] border-b-2 bg-gradient-to-b from-[#232323] to-[#181818] shadow-[0px_6px_14px_0px_rgba(0,0,0,0.45)]`}
-        style={{ borderColor: section.borderColor }}
-      >
-        <div className='flex items-center gap-2 mb-4'>
-          {renderIcon(section)}
-          <h3
-            className={`text-lg font-semibold ${
-              section.icon === 'settings'
-                ? `text-[${section.iconColor}]`
-                : 'text-white'
-            }`}
+  return (
+    <div className='space-y-12'>
+      {sectionOrder.map((sectionId) => {
+        const section = sectionConfig[sectionId];
+        if (!pageLayout[sectionId]) return null;
+
+        return (
+          <div
+            key={section.id}
+            className={`p-6 rounded-[24px] border-b-2 bg-gradient-to-b from-[#232323] to-[#181818] shadow-[0px_6px_14px_0px_rgba(0,0,0,0.45)] w-full`}
+            style={{ borderColor: section.borderColor }}
           >
-            {section.title}
-          </h3>
-        </div>
-        <div className='space-y-2 text-gray-400'>
-          {section.content.map((item, index) => (
-            <p
-              key={index}
-              className='text-white font-nohemi text-[14px] font-normal leading-[150%]'
-            >
-              {section.useListStyle === 'bullet' ? '• ' : `${index + 1}. `}
-              {item}
-            </p>
-          ))}
-        </div>
-      </div>
-    );
-  });
+            <div className='flex items-center gap-3 mb-6'>
+              <span className={`p-2 rounded-lg ${section.iconBg}`}>
+                {section.icon}
+              </span>
+              <h2 className={`text-xl font-bold ${section.titleColor}`}>
+                {section.title}
+              </h2>
+            </div>
+            {renderContent(section.id)}
+          </div>
+        );
+      })}
+    </div>
+  );
 };
 
 export default InfoSection;

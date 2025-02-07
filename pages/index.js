@@ -2,77 +2,9 @@ import React, { use } from 'react';
 import { Star } from 'lucide-react';
 import { useMediaQuery } from '@mui/material';
 import { useRouter } from 'next/router';
+import { agents } from '../src/constant/WebConstants';
 
 const AgentListing = () => {
-  const agents = [
-    {
-      id: 1,
-      name: 'AI AGENT NAME',
-      description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod...',
-      rating: 4.4,
-      reviews: 200,
-      pricing: '11 $MAN per task',
-      image: '/images/ai/aiAgentBanner.png',
-      category: 'Video',
-    },
-    {
-      id: 1,
-      name: 'AI AGENT NAME',
-      description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod...',
-      rating: 4.4,
-      reviews: 200,
-      pricing: '11 $MAN per task',
-      image: '/images/ai/aiAgentBanner.png',
-      category: 'Category',
-    },
-    {
-      id: 1,
-      name: 'AI AGENT NAME',
-      description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod...',
-      rating: 4.4,
-      reviews: 200,
-      pricing: '11 $MAN per task',
-      image: '/images/ai/aiAgentBanner.png',
-      category: 'Video',
-    },
-    {
-      id: 1,
-      name: 'AI AGENT NAME',
-      description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod...',
-      rating: 4.4,
-      reviews: 200,
-      pricing: '11 $MAN per task',
-      image: '/images/ai/aiAgentBanner.png',
-      category: 'Category',
-    },
-    {
-      id: 1,
-      name: 'AI AGENT NAME',
-      description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod...',
-      rating: 4.4,
-      reviews: 200,
-      pricing: '11 $MAN per task',
-      image: '/images/ai/aiAgentBanner.png',
-      category: 'Video',
-    },
-    {
-      id: 1,
-      name: 'AI AGENT NAME',
-      description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod...',
-      rating: 4.4,
-      reviews: 200,
-      pricing: '11 $MAN per task',
-      image: '/images/ai/aiAgentBanner.png',
-      category: 'Category',
-    },
-  ];
-
   const isMobile = useMediaQuery('(max-width:768px)');
 
   const router = useRouter();
@@ -92,7 +24,7 @@ const AgentListing = () => {
         }}
       >
         {/* Hero Section */}
-        <div className='text-center mb-12'>
+        <div className='mb-12 text-center'>
           <h1 className='text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-[#CCFF00] to-white bg-clip-text text-transparent'>
             AI AGENTS THAT DRIVE BUSINESS AND PERSONAL RESULTS
           </h1>
@@ -102,17 +34,18 @@ const AgentListing = () => {
             and scale your businessnal Results
           </p>
           <button
-            className='px-6 py-3 bg-white text-black rounded-full hover:bg-white/90'
+            className='px-6 py-3 text-black bg-white rounded-full hover:bg-white/90'
             style={{
               borderRadius: '12px',
               boxShadow: '0px 0px 15px 0px rgba(255, 255, 255, 0.75)',
             }}
+            onClick={() => alert('Coming Soon')}
           >
             Explore AI Agents
           </button>
         </div>
         {/* Filters */}
-        <div className='flex flex-wrap gap-4 mb-8 justify-center'>
+        {/* <div className='flex flex-wrap justify-center gap-4 mb-8'>
           <button className='px-4 py-2 bg-[#222222] rounded-xl border-[1px] border-[#555] hover:bg-[#333333] flex items-center gap-2'>
             Categories
             <svg
@@ -135,9 +68,7 @@ const AgentListing = () => {
               <path d='M6 9l6 6 6-6' />
             </svg>
           </button>
-        </div>
-        {/* Agent Cards */}
-        {/* Agent Cards */}
+        </div> */}
         {/* Agent Cards */}
         <div className='space-y-4'>
           {agents.map((agent) => (
@@ -151,22 +82,24 @@ const AgentListing = () => {
                 // Mobile Layout
                 <div
                   className='flex flex-col gap-4'
-                  onClick={() => router.push('/agent-details')}
+                  onClick={() => {
+                    router.push(`/agent-details?agent=${agent.name}`);
+                  }}
                 >
                   {/* Top Section - Image and Details */}
                   <div className='flex gap-4'>
                     <img
                       src={agent.image}
                       alt={agent.name}
-                      className='w-24 h-24 rounded-lg object-cover flex-shrink-0'
+                      className='flex-shrink-0 object-cover w-24 h-24 rounded-lg'
                     />
                     <div className='flex flex-col justify-between'>
                       <div>
                         <h3 className='text-white font-bricolage text-[20px] font-bold leading-[150%] tracking-[-1.6px] uppercase mb-2'>
                           {agent.name}
                         </h3>
-                        <div className='flex items-center gap-1 text-sm text-white/60 mb-2'>
-                          <Star className='w-4 h-4 fill-current text-yellow-400' />
+                        <div className='flex items-center gap-1 mb-2 text-sm text-white/60'>
+                          <Star className='w-4 h-4 text-yellow-400 fill-current' />
                           <span>{agent.rating}</span>
                           <span>({agent.reviews} reviews)</span>
                         </div>
@@ -191,23 +124,25 @@ const AgentListing = () => {
                 // Desktop Layout
                 <div
                   className='flex gap-4'
-                  onClick={() => router.push('/agent-details')}
+                  onClick={() =>
+                    router.push(`/agent-details?agent=${agent.name}`)
+                  }
                 >
                   {/* Left - Image */}
                   <img
                     src={agent.image}
                     alt={agent.name}
-                    className='w-24 h-24 rounded-lg object-cover flex-shrink-0'
+                    className='flex-shrink-0 object-cover w-24 h-24 rounded-lg'
                   />
 
                   {/* Right - Content */}
-                  <div className='flex-1 flex flex-col'>
+                  <div className='flex flex-col flex-1'>
                     <div className='flex items-center gap-2 mb-2'>
                       <h3 className='text-white font-bricolage text-[20px] font-bold leading-[150%] tracking-[-1.6px] uppercase'>
                         {agent.name}
                       </h3>
                       <div className='flex items-center gap-1 text-sm text-white/60'>
-                        <Star className='w-4 h-4 fill-current text-yellow-400' />
+                        <Star className='w-4 h-4 text-yellow-400 fill-current' />
                         <span>{agent.rating}</span>
                         <span>({agent.reviews} reviews)</span>
                       </div>

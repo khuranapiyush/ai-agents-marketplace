@@ -1,10 +1,22 @@
 /* eslint-disable @next/next/no-img-element */
+import { agents } from '../../src/constant/WebConstants';
 import InfoSection from '../../src/component/InfoSection';
 import Tooltip, { tooltipClasses } from '@mui/material/Tooltip';
 import { styled } from '@mui/material/styles';
-import { ChevronLeft, Star } from 'lucide-react';
+import {
+  Building2,
+  ChevronLeft,
+  Film,
+  Layers,
+  Music,
+  Play,
+  Settings,
+  Star,
+  User,
+} from 'lucide-react';
 import { useRouter } from 'next/router';
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useSearchParams } from 'next/navigation';
 
 const HtmlTooltip = styled(({ className, ...props }) => (
   <Tooltip {...props} classes={{ popper: className }} />
@@ -27,13 +39,23 @@ const HtmlTooltip = styled(({ className, ...props }) => (
   },
 }));
 
-export default function AgentDetails({ agentDetail, agentId }) {
+export default function AgentDetails({ agentId }) {
   const router = useRouter();
+
+  const searchParams = useSearchParams();
+
+  const query = searchParams.get('agent');
+
+  function getAgentDetail(agentId) {
+    return agents.find((agent) => agent.name === agentId);
+  }
+
+  const agentDetail = getAgentDetail(query);
 
   return (
     <div className='bg-[#1E1E1E] text-white pt-24'>
       {/* Header */}
-      <div className='max-w-7xl mx-auto px-4'>
+      <div className='px-4 mx-auto max-w-7xl'>
         <div className='flex items-center gap-4 py-6'>
           <button
             className='text-white hover:text-gray-300'
@@ -48,57 +70,60 @@ export default function AgentDetails({ agentDetail, agentId }) {
 
         {/* Main Card */}
         <div className='rounded-[48px] border-2 border-white/15 bg-[#242424] p-8 mb-8'>
-          <div className='flex flex-col md:flex-row gap-8'>
+          <div className='flex flex-col gap-8 md:flex-row'>
             {/* Left side - Image */}
             <div className='w-full md:w-[300px] shrink-0'>
               <img
-                src='/images/ai/aiAgentBanner.png'
+                src={agentDetail?.image}
                 alt='AI Agent'
-                className='w-full aspect-square rounded-lg object-cover'
+                className='object-cover w-full rounded-lg aspect-square'
               />
             </div>
 
             {/* Right side - Details */}
             <div className='flex-1'>
-              <div className='flex flex-col md:flex-row justify-between mb-4'>
+              <div className='flex flex-col justify-between mb-4 md:flex-row'>
                 <div className='flex items-center gap-4 mb-4 md:mb-0'>
-                  <h2 className='text-xl font-bold'>AI AGENT NAME</h2>
-                  <span className='px-3 py-1 bg-purple-500/20 text-purple-300 rounded-full text-sm'>
-                    Video
+                  <h2 className='text-xl font-bold'>{agentDetail?.name}</h2>
+                  <span className='px-3 py-1 text-sm text-purple-300 rounded-full bg-purple-500/20'>
+                    {agentDetail?.category}
                   </span>
                   <div className='flex items-center gap-1'>
-                    <Star className='w-4 h-4 fill-yellow-400 text-yellow-400' />
+                    <Star className='w-4 h-4 text-yellow-400 fill-yellow-400' />
                     <span>4.4</span>
                     <span className='text-gray-400'>(200 reviews)</span>
                   </div>
                 </div>
-                <div className='text-right'>
+                {/* <div className='text-right'>
                   <span className='text-gray-400'>M Cap.</span>
                   <span className='ml-2'>513K</span>
-                </div>
+                </div> */}
               </div>
 
-              <p className='text-gray-400 mb-6'>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                ut.
-              </p>
+              <p className='mb-6 text-gray-400'>{agentDetail?.description}</p>
 
               <div className='mb-6'>
                 <span className='text-gray-400'>Pricing:</span>
                 <span className='ml-2'>11 $MAN ($0.01) per task</span>
               </div>
 
-              <div className='flex flex-col sm:flex-row gap-4'>
-                <button className='flex-1 py-3 px-6 bg-[#CCFF00] text-black rounded-full hover:bg-[#CCFF00]/90'>
+              <div className='flex flex-col gap-4 sm:flex-row'>
+                <button
+                  className='flex-1 py-3 px-6 bg-[#CCFF00] text-black rounded-full hover:bg-[#CCFF00]/90'
+                  onClick={() => alert('Coming Soon')}
+                >
                   Hire Agent
                 </button>
-                <button className='flex-1 py-3 px-6 border border-white/20 rounded-full hover:bg-white/5'>
+                {/* <button className='flex-1 px-6 py-3 border rounded-full border-white/20 hover:bg-white/5'>
                   Buy $MAN
-                </button>
-                <button className='flex-1 py-3 px-6 border border-white/20 rounded-full hover:bg-white/5'>
-                  Rate Agent
+                </button> */}
+                <button
+                  className='flex-1 px-6 py-3 border rounded-full border-white/20 hover:bg-white/5'
+                  onClick={() => {
+                    router.push(agentDetail?.redirectUrl);
+                  }}
+                >
+                  Own This Agent
                 </button>
               </div>
             </div>
@@ -106,7 +131,7 @@ export default function AgentDetails({ agentDetail, agentId }) {
         </div>
 
         {/* Features Section */}
-        <InfoSection />
+        <InfoSection pageName={'voice'} />
       </div>
     </div>
   );
