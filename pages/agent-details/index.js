@@ -131,7 +131,7 @@ export default function AgentDetails({ agentId }) {
         </div>
 
         {/* Features Section */}
-        <InfoSection pageName={'voice'} />
+        <InfoSection pageName={agentDetail?.name} />
       </div>
     </div>
   );

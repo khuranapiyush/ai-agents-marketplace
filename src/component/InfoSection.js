@@ -11,20 +11,20 @@ import React from 'react';
 
 // Define different card layouts for different pages
 const cardLayouts = {
-  music: {
+  MUZIC: {
     features: [
       {
         title: 'Music Creation',
         icon: 'calendar',
         description: 'Transform your words into melodies',
-        image: '/images/ai/vdioVoice.png',
+        image: '/images/ai/musicCreation.png',
       },
       {
         title: 'Pick Genre/Style',
         icon: 'mic',
         description:
           'Any genre at your fingertips. Classical, Jazz, Rock, or EDM',
-        image: '/images/ai/appointment.png',
+        image: '/images/ai/genre.png',
       },
       {
         title: 'Feature Name',
@@ -84,7 +84,69 @@ const cardLayouts = {
       useListStyle: 'number',
     },
   },
-  voice: {
+  'BTR AI': {
+    features: [
+      {
+        title: 'Market Data Analysis',
+        icon: 'calendar',
+        description: 'Real-time and historical data monitoring',
+        image: '/images/ai/marketDataAnalysis.png',
+      },
+      {
+        title: 'Automated Trading',
+        icon: 'mic',
+        description: 'Order execution without manual intervention',
+        image: '/images/ai/automatedTrading.png',
+      },
+      {
+        title: 'Predictive Analytics',
+        icon: 'clock',
+        description: 'Price movement prediction',
+        image: '/images/ai/analysis.png',
+      },
+    ],
+    useCases: [
+      {
+        title: 'Day Trading',
+        icon: 'business',
+        items: [
+          'Real-time market insights',
+          'Execution of trades based on minute-by-minute market changes',
+        ],
+      },
+      {
+        title: 'Algorithmic Trading',
+        icon: 'accessibility',
+        items: [
+          'Deployment of pre-set trading algorithms',
+          'Arbitrage and statistical trading strategies',
+        ],
+      },
+      {
+        title: 'Investment Advisory',
+        icon: 'business',
+        items: [
+          'Automated investment advice for retail and institutional clients',
+          'Long-term strategy recommendations',
+        ],
+      },
+    ],
+    reviews: {
+      title: 'Reviews',
+      borderColor: '#88FDF6',
+      icon: 'star',
+      iconColor: '#0BDA96',
+      iconBg: 'bg-[#0BDA96]/20',
+      content: [
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod',
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod',
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod',
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod',
+      ],
+      useListStyle: 'number',
+    },
+  },
+  'VOX AI': {
     features: [
       {
         title: 'Book Appointments',
@@ -154,89 +216,25 @@ const cardLayouts = {
       useListStyle: 'number',
     },
   },
-  btr: {
+  'VDIO AI': {
     features: [
       {
-        title: 'Market Data Analysis',
+        title: 'High Quality Videos',
         icon: 'calendar',
-        description: 'Real-time and historical data monitoring',
-        image: '/images/features/voice-wave.png',
+        description: 'Transform your words into high quality videos',
+        image: '/images/ai/appointment.png',
       },
       {
-        title: 'Automated Trading',
+        title: 'Video Builder',
         icon: 'mic',
-        description: 'Order execution without manual intervention',
-        image: '/images/features/voice-auth.png',
+        description: 'Generate videos you like using AI, high quality videos',
+        image: '/images/ai/vdioVoice.png',
       },
       {
-        title: 'Predictive Analytics',
-        icon: 'clock',
-        description: 'Price movement prediction',
-        image: '/images/features/realtime.png',
-      },
-    ],
-    useCases: [
-      {
-        title: 'Day Trading',
-        icon: 'business',
-        items: [
-          'Real-time market insights',
-          'Execution of trades based on minute-by-minute market changes',
-        ],
-      },
-      {
-        title: 'Algorithmic Trading',
-        icon: 'accessibility',
-        items: [
-          'Deployment of pre-set trading algorithms',
-          'Arbitrage and statistical trading strategies',
-        ],
-      },
-      {
-        title: 'Investment Advisory',
-        icon: 'business',
-        items: [
-          'Automated investment advice for retail and institutional clients',
-          'Long-term strategy recommendations',
-        ],
-      },
-    ],
-    reviews: {
-      title: 'Reviews',
-      borderColor: '#88FDF6',
-      icon: 'star',
-      iconColor: '#0BDA96',
-      iconBg: 'bg-[#0BDA96]/20',
-      content: [
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod',
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod',
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod',
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod',
-      ],
-      useListStyle: 'number',
-    },
-  },
-  vdio: {
-    features: [
-      {
-        title: 'Book Appointments',
-        icon: 'calendar',
-        description: 'Transform your words into melodies',
-        image: '/images/ai/marketDataAnalysis.png',
-      },
-      {
-        title: 'Voice Authentication',
-        icon: 'mic',
-        description:
-          'Any genre at your fingertips. Classical, Jazz, Rock, or EDM',
-        image: '/images/ai/automatedTrading.png',
-      },
-      {
-        title: 'Feature Name',
+        title: 'AI Video Editor',
         icon: 'clock',
         description:
-          'Any genre at your fingertips. Classical, Jazz, Rock, or EDM– just pick your style and let your words shape the perfect track. Where text transforms into the music you imagine',
-        image: '/images/ai/analysis.png',
+          'Edit, Create and Transform your videos with Vdio AI tools. You can create Youtube type podcast, short series, insta reels, tiktok videos etc',
       },
     ],
     useCases: [
@@ -457,6 +455,7 @@ const sectionConfig = {
 };
 
 const InfoSection = ({ pageName }) => {
+  console.log(pageName, 'paeg');
   const pageLayout = cardLayouts[pageName];
   if (!pageLayout) return null;
 
