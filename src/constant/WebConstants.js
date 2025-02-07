@@ -18,7 +18,7 @@ export const agents = [
     id: 1,
     name: 'BTR AI',
     description:
-      'BTR Agent is your go-to tool for effortlessly managing your social media presence across Twitter, Telegram, and Discord.',
+      'BTR Agent is a DeFi trading agent on SUI that autonomously executes trades on your behalf, optimizing strategies and maximizing efficiency without manual intervention.',
     rating: 4.4,
     reviews: 200,
     pricing: '10 $BTR per task',
