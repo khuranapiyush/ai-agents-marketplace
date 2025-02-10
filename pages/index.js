@@ -117,7 +117,11 @@ const AgentListing = () => {
                       {agent.description}
                     </p>
                     <span className='text-[#CF0] text-left font-nohemi text-[14px] font-light leading-[150%]'>
-                      Pricing: {agent.pricing}
+                      Pricing:
+                      <span className='text-[#FFF]'>
+                        {'  '}
+                        {agent.pricing}
+                      </span>
                     </span>
                   </div>
                 </div>

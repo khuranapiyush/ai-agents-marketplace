@@ -90,7 +90,7 @@ export default function AgentDetails({ agentId }) {
                   </span>
                   <div className='flex items-center gap-1 px-3 py-1 text-sm rounded-lg text-white/60 bg-white/15 w-[auto] mb-2'>
                     <Star className='w-4 h-4 text-yellow-400 fill-current' />
-                    <span>{agentDetail.rating}</span>
+                    <span>{agentDetail?.rating}</span>
                     {/* <span>({agent.reviews} reviews)</span> */}
                   </div>
                   <div className=''>
@@ -110,7 +110,7 @@ export default function AgentDetails({ agentId }) {
 
               <div className='mb-6'>
                 <span className='text-gray-400'>Pricing:</span>
-                <span className='ml-2'>11 $MAN ($0.01) per task</span>
+                <span className='ml-2'>{agentDetail?.pricing}</span>
               </div>
 
               <div className='flex flex-col gap-4 sm:flex-row'>
