@@ -164,7 +164,7 @@ const AgentListing = () => {
 
                     <div className='flex items-center justify-between'>
                       <span className='text-[#CF0] text-left font-nohemi text-[14px] font-thin leading-[150%]'>
-                        Pricing:
+                        Price starts from:
                         <span className='text-[#FFF] text-left font-nohemi text-[14px] font-thin leading-[150%]'>
                           {' '}
                           {agent.pricing}
