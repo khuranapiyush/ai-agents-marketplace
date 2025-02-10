@@ -16,6 +16,8 @@ module.exports = {
       fontFamily: {
         nohemi: ['Nohemi', 'sans-serif'],
         bricolage: ['BricolageGrotesque', 'sans-serif'],
+        micro: ['Micro', 'sans-serif'],
+        tiny: ['Tiny', 'sans-serif'],
       },
     },
   },

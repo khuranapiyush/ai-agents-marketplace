@@ -365,7 +365,7 @@ const FeatureCard = ({ feature }) => (
   <div
     className='p-6 transition-colors rounded-xl border-[1.5px] border-white/30 bg-gradient-to-b from-[#615349] to-[#2A2A2A]/60 selection:bg-[#917F75]'
     style={{
-      backgroundImage: `linear-gradient(180deg, #615349 0%, #352D28 100%), url('/images/ai/noiseBg.png')`,
+      backgroundImage: `linear-gradient(180deg, #615349 0%, #352D28 100%)`,
       backgroundSize: 'cover',
       backgroundPosition: 'center',
       backgroundBlendMode: 'overlay',
@@ -392,7 +392,7 @@ const UseCaseCard = ({ useCase }) => (
   <div
     className='p-6 rounded-xl transition-colors border-[1.5px] border-white/30 relative selection:bg-[#61495F] overflow-hidden'
     style={{
-      backgroundImage: `linear-gradient(180deg, #61495F 0%, #332835 100%),url('/images/ai/noiseBg.png')`,
+      backgroundImage: `linear-gradient(180deg, #61495F 0%, #332835 100%)`,
       backgroundSize: 'cover',
       backgroundPosition: 'center',
       backgroundBlendMode: 'overlay',
@@ -455,7 +455,6 @@ const sectionConfig = {
 };
 
 const InfoSection = ({ pageName }) => {
-  console.log(pageName, 'paeg');
   const pageLayout = cardLayouts[pageName];
   if (!pageLayout) return null;
 

@@ -147,7 +147,7 @@ const RevampHeader = ({ app }) => {
                 variant='h6'
                 className='nav-item'
                 sx={{
-                  color: router.pathname === item?.path ? '#FFD700' : '#FFFFFF', // Highlight active item
+                  color: router.pathname === item?.path ? '#FFD700' : '#FFFFFF',
                   fontFamily: 'Nohemi',
                   fontSize: '16px',
                   fontWeight: 500,
@@ -160,7 +160,7 @@ const RevampHeader = ({ app }) => {
                   <Box
                     sx={{
                       marginLeft: '10px',
-                      backgroundColor: '#FF5722', // Accent color
+                      backgroundColor: '#FF5722',
                       padding: '2px 5px',
                       borderRadius: '10px',
                       fontSize: '8px',
@@ -258,7 +258,7 @@ const RevampHeader = ({ app }) => {
           {/* {!isMobile && ( */}
           <Box>
             <Box sx={styles.btnContainer} onClick={handleWalletClick}>
-              <img src='/images/rocket-launch.svg' />
+              {<img src='/images/rocket-launch.svg' />}
               {isWalletConnected ? (
                 <Button
                   sx={{

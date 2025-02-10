@@ -64,7 +64,7 @@ export default function AgentDetails({ agentId }) {
             <ChevronLeft size={24} />
           </button>
           <h1 className='text-[20px] font-bold tracking-[-0.8px] uppercase'>
-            Agent Details
+            Hire Agent
           </h1>
         </div>
 
@@ -84,23 +84,29 @@ export default function AgentDetails({ agentId }) {
             <div className='flex-1'>
               <div className='flex flex-col justify-between mb-4 md:flex-row'>
                 <div className='flex items-center gap-4 mb-4 md:mb-0'>
-                  <h2 className='text-xl font-bold'>{agentDetail?.name}</h2>
-                  <span className='px-3 py-1 text-sm text-purple-300 rounded-full bg-purple-500/20'>
+                  <h2 className='text-4xl font-bold'>{agentDetail?.name}</h2>
+                  <span className='px-3 py-1 gap-1 text-sm text-[#CF0] rounded-lg bg-[#2F351B] w-[auto] mb-2'>
                     {agentDetail?.category}
                   </span>
-                  <div className='flex items-center gap-1'>
-                    <Star className='w-4 h-4 text-yellow-400 fill-yellow-400' />
-                    <span>4.4</span>
-                    <span className='text-gray-400'>(200 reviews)</span>
+                  <div className='flex items-center gap-1 px-3 py-1 text-sm rounded-lg text-white/60 bg-white/15 w-[auto] mb-2'>
+                    <Star className='w-4 h-4 text-yellow-400 fill-current' />
+                    <span>{agentDetail.rating}</span>
+                    {/* <span>({agent.reviews} reviews)</span> */}
+                  </div>
+                  <div className=''>
+                    <span
+                      className='text-white border-b border-b-white'
+                      onClick={() => alert('Coming Soon')}
+                    >
+                      Rate It
+                    </span>
                   </div>
                 </div>
-                {/* <div className='text-right'>
-                  <span className='text-gray-400'>M Cap.</span>
-                  <span className='ml-2'>513K</span>
-                </div> */}
               </div>
 
-              <p className='mb-6 text-gray-400'>{agentDetail?.description}</p>
+              <p className='mb-6  text-[#D2D2D2] font-Nohemitext-sm font-normal leading-[150%]'>
+                {agentDetail?.description}
+              </p>
 
               <div className='mb-6'>
                 <span className='text-gray-400'>Pricing:</span>
