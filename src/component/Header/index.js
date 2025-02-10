@@ -27,6 +27,27 @@ const LogOutNavItem = [
   },
 ];
 
+const headerItems = [
+  {
+    path: 'https://app.agentnation.xyz/',
+    title: 'Trade',
+    icon: '/images/fantv/menu/reward.svg',
+    newTag: false,
+  },
+  {
+    path: '/',
+    title: 'Marketplace',
+    icon: '/images/fantv/menu/reward.svg',
+    newTag: false,
+  },
+  {
+    path: '/marketplace',
+    title: 'Build',
+    icon: '/images/fantv/menu/reward.svg',
+    newTag: true,
+  },
+];
+
 const RevampHeader = ({ app }) => {
   const wallet = useWallet();
   const { walletState } = useWalletConnection();
@@ -236,29 +257,51 @@ const RevampHeader = ({ app }) => {
                   alignItems='center'
                   className='cursor-pointer'
                 >
-                  {['Trade'].map((label) => (
+                  {headerItems.map((label) => (
                     <Typography
                       key={label}
                       variant='h6'
                       className='nav-item'
                       sx={{
-                        color: '#FFFFFF',
+                        color:
+                          label.title === 'Marketplace' ? '#CF0' : '#FFFFFF',
                         display: 'flex',
                         fontFamily: 'Nohemi',
                         fontSize: '16px',
+                        fontFamily: 'Nohemi',
+                        fontSize: '16px',
+                        fontWeight: 500,
+                        display: 'flex',
+                        alignItems: 'center',
                       }}
+                      onClick={() => !label.newTag && router.push(label.path)}
                     >
-                      {label}
+                      {label.title}
+                      {label.newTag && (
+                        <Box
+                          sx={{
+                            marginLeft: '10px',
+                            backgroundColor: '#CF0',
+                            padding: '1px 5px',
+                            borderRadius: '10px',
+                            fontSize: '8px',
+                            fontWeight: 700,
+                            color: '#000',
+                            textAlign: 'center',
+                            display: 'inline-block',
+                          }}
+                        >
+                          Coming Soon
+                        </Box>
+                      )}
                     </Typography>
                   ))}
                 </Box>
               </Box>
             )}
           </Box>
-          {/* {!isMobile && ( */}
           <Box>
             <Box sx={styles.btnContainer} onClick={handleWalletClick}>
-              {<img src='/images/rocket-launch.svg' />}
               {isWalletConnected ? (
                 <Button
                   sx={{

@@ -72,7 +72,7 @@ export default function AgentDetails({ agentId }) {
         <div className='rounded-[48px] border-2 border-white/15 bg-[#242424] p-8 mb-8'>
           <div className='flex flex-col gap-8 md:flex-row'>
             {/* Left side - Image */}
-            <div className='w-full md:w-[300px] shrink-0'>
+            <div className='w-full md:w-[260px] shrink-0'>
               <img
                 src={agentDetail?.image}
                 alt='AI Agent'
@@ -83,19 +83,18 @@ export default function AgentDetails({ agentId }) {
             {/* Right side - Details */}
             <div className='flex-1'>
               <div className='flex flex-col justify-between mb-4 md:flex-row'>
-                <div className='flex items-center gap-4 mb-4 md:mb-0'>
+                <div className='flex flex-col gap-2'>
                   <h2 className='text-4xl font-bold'>{agentDetail?.name}</h2>
-                  <span className='px-3 py-1 gap-1 text-sm text-[#CF0] rounded-lg bg-[#2F351B] w-[auto] mb-2'>
-                    {agentDetail?.category}
-                  </span>
-                  <div className='flex items-center gap-1 px-3 py-1 text-sm rounded-lg text-white/60 bg-white/15 w-[auto] mb-2'>
-                    <Star className='w-4 h-4 text-yellow-400 fill-current' />
-                    <span>{agentDetail?.rating}</span>
-                    {/* <span>({agent.reviews} reviews)</span> */}
-                  </div>
-                  <div className=''>
+                  <div className='flex flex-wrap items-center gap-4'>
+                    <span className='px-3 py-1 text-sm text-[#CF0] rounded-lg bg-[#2F351B]'>
+                      {agentDetail?.category}
+                    </span>
+                    <div className='flex items-center gap-1 px-3 py-1 text-sm rounded-lg text-white/60 bg-white/15'>
+                      <Star className='w-4 h-4 text-yellow-400 fill-current' />
+                      <span>{agentDetail?.rating}</span>
+                    </div>
                     <span
-                      className='text-white border-b border-b-white'
+                      className='text-white border-b cursor-pointer border-b-white'
                       onClick={() => alert('Coming Soon')}
                     >
                       Rate It
@@ -109,22 +108,24 @@ export default function AgentDetails({ agentId }) {
               </p>
 
               <div className='mb-6'>
-                <span className='text-gray-400'>Pricing:</span>
-                <span className='ml-2'>{agentDetail?.pricing}</span>
+                <span className='text-[#CF0] text-left font-nohemi text-[14px] font-light leading-[150%]'>
+                  Price starts from:
+                  <span className='text-[#FFF]'>
+                    {'  '}
+                    {agentDetail?.pricing}
+                  </span>
+                </span>
               </div>
 
               <div className='flex flex-col gap-4 sm:flex-row'>
                 <button
-                  className='flex-1 py-3 px-6 bg-[#CCFF00] text-black rounded-full hover:bg-[#CCFF00]/90'
+                  className='py-3 px-12 w-full sm:w-fit h-12 bg-[#CCFF00] text-black rounded-full hover:bg-[#CCFF00]/90'
                   onClick={() => alert('Coming Soon')}
                 >
                   Hire Agent
                 </button>
-                {/* <button className='flex-1 px-6 py-3 border rounded-full border-white/20 hover:bg-white/5'>
-                  Buy $MAN
-                </button> */}
                 <button
-                  className='flex-1 px-6 py-3 border rounded-full border-white/20 hover:bg-white/5'
+                  className='w-full h-12 px-12 py-3 border rounded-full sm:w-fit border-white/20 hover:bg-white/5'
                   onClick={() => {
                     router.push(agentDetail?.redirectUrl);
                   }}

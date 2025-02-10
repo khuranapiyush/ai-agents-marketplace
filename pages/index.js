@@ -25,10 +25,10 @@ const AgentListing = () => {
       >
         {/* Hero Section */}
         <div className='mb-12 text-center'>
-          <h1 className='font-tiny text-[44px] font-normal leading-[150%] tracking-[-1.76px] uppercase bg-gradient-to-r from-[#CCFF00] via-white to-white bg-clip-text text-transparent'>
+          <h1 className='font-tiny text-[44px] font-normal leading-[150%] tracking-[-1.76px] uppercase bg-gradient-to-r from-[#CCFF00] via-[#CF0] to-white bg-clip-text text-transparent'>
             AI AGents Marketplace
           </h1>
-          <p className='text-[#D2D2D2] text-center font-tiny text-2xl font-normal leading-[150%] tracking-[-0.96px] uppercase'>
+          <p className='text-[#D2D2D2] text-center font-Nohemi text-2xl font-normal leading-[150%] tracking-[-0.96px] uppercase'>
             Hire ready to use AI Agents to automate tasks, boost productivity,
             ease your life.
           </p>
@@ -117,7 +117,7 @@ const AgentListing = () => {
                       {agent.description}
                     </p>
                     <span className='text-[#CF0] text-left font-nohemi text-[14px] font-light leading-[150%]'>
-                      Pricing:
+                      Price starts from:
                       <span className='text-[#FFF]'>
                         {'  '}
                         {agent.pricing}
