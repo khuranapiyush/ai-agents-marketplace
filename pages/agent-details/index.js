@@ -86,13 +86,13 @@ export default function AgentDetails({ agentId }) {
                 <div className='flex flex-col gap-2'>
                   <h2 className='text-4xl font-bold'>{agentDetail?.name}</h2>
                   <div className='flex flex-wrap items-center gap-4'>
-                    <span className='px-3 py-1 text-sm text-[#CF0] rounded-lg bg-[#2F351B]'>
-                      {agentDetail?.category}
-                    </span>
                     <div className='flex items-center gap-1 px-3 py-1 text-sm rounded-lg text-white/60 bg-white/15'>
                       <Star className='w-4 h-4 text-yellow-400 fill-current' />
                       <span>{agentDetail?.rating}</span>
                     </div>
+                    <span className='px-3 py-1 text-sm text-[#CF0] rounded-lg bg-[#2F351B]'>
+                      {agentDetail?.category}
+                    </span>
                     <span
                       className='text-white border-b cursor-pointer border-b-white'
                       onClick={() => alert('Coming Soon')}
@@ -103,14 +103,14 @@ export default function AgentDetails({ agentId }) {
                 </div>
               </div>
 
-              <p className='mb-6  text-[#D2D2D2] font-Nohemitext-sm font-normal leading-[150%]'>
+              <p className='mb-6  text-[#D2D2D2] font-Nohemi text-sm font-normal leading-[150%]'>
                 {agentDetail?.description}
               </p>
 
               <div className='mb-6'>
-                <span className='text-[#CF0] text-left font-nohemi text-[14px] font-light leading-[150%]'>
+                <span className='text-[#D2D2D2] text-left font-nohemi text-[14px] font-thin leading-[150%]'>
                   Price starts from:
-                  <span className='text-[#FFF]'>
+                  <span className='text-[#FFF] font-thin'>
                     {'  '}
                     {agentDetail?.pricing}
                   </span>

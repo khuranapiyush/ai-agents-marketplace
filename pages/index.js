@@ -102,8 +102,8 @@ const AgentListing = () => {
                           <span>{agent.rating}</span>
                           {/* <span>({agent.reviews} reviews)</span> */}
                         </div>
-                        <div className='flex items-center gap-1 text-sm rounded-lg text-white/60 bg-white/15 w-[auto]'>
-                          <span className='px-3 py-1 text-sm'>
+                        <div className='flex items-center gap-1 text-sm text-white/60  w-[auto] rounded-lg bg-[#CCFF00]/10'>
+                          <span className='px-3 py-1 text-sm text-[#CF0]'>
                             {agent.category}
                           </span>
                         </div>
@@ -112,12 +112,12 @@ const AgentListing = () => {
                   </div>
 
                   {/* Bottom Section - Description and Price */}
-                  <div>
+                  <div className='w-[100%]'>
                     <p className='text-[#D2D2D2] text-left font-nohemi text-[14px] font-light leading-[150%] mb-2'>
                       {agent.description}
                     </p>
                     <span className='text-[#CF0] text-left font-nohemi text-[14px] font-light leading-[150%]'>
-                      Price starts from:
+                      Price starts:
                       <span className='text-[#FFF]'>
                         {'  '}
                         {agent.pricing}
@@ -151,20 +151,30 @@ const AgentListing = () => {
                         <span>{agent.rating}</span>
                         {/* <span>({agent.reviews} reviews)</span> */}
                       </div>
-                      <div className='flex items-center gap-1 text-sm rounded-lg text-white/60 bg-white/15'>
-                        <span className='px-3 py-1 text-sm'>
+                      <div className='flex items-center gap-1 text-sm  text-white/60 rounded-lg bg-[#CCFF00]/10'>
+                        <span className='px-3 py-1 text-sm text-[#CF0]'>
                           {agent.category}
                         </span>
                       </div>
                     </div>
 
-                    <p className='text-[#D2D2D2] text-left font-nohemi text-[14px] font-light leading-[150%] mb-2 flex-1'>
-                      {agent.description}
-                    </p>
+                    <div className='w-[70%]'>
+                      <p className='text-[#D2D2D2] text-left font-nohemi text-[14px] font-light leading-[150%] mb-2'>
+                        {/* {agent.description.slice(
+                        0,
+                        Math.floor(agent.description.length * 0.7)
+                      )}
+                      <br />
+                      {agent.description.slice(
+                        Math.floor(agent.description.length * 0.7)
+                      )} */}
+                        {agent.description}
+                      </p>
+                    </div>
 
                     <div className='flex items-center justify-between'>
                       <span className='text-[#CF0] text-left font-nohemi text-[14px] font-thin leading-[150%]'>
-                        Price starts from:
+                        Price starts:
                         <span className='text-[#FFF] text-left font-nohemi text-[14px] font-thin leading-[150%]'>
                           {' '}
                           {agent.pricing}
